@@ -32,7 +32,7 @@
             <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm" ng-if="globals.currentUser">
               <ul class="nav nav-pills nav-stacked">
                 <li class="nav-header">
-                  <span class="icon icon-infinity"></span>
+                  <span class="icon icon-chevron-right"></span>
                   Menu
                 </li>
                 <li >
@@ -44,9 +44,21 @@
                 <li >
                   <a href="/#/report/add">Add report</a>
                 </li>
+                <span ng-if="globals.currentUser.username === 'supervisor'">
+                  <hr>
+                  <ul class="nav nav-pills nav-stacked">
+                    <li class="nav-header">
+                      <span class="icon icon-chevron-right"></span>
+                      Supervisor menu
+                    </li>
+                    <li>
+                      <a href="/#/supervisor">Supervisor reports</a>
+                    </li>
+                  </ul>
+                </span>
                 <hr>
                 <li class="nav-header">
-                  <span class="icon icon-user"></span>
+                  <span class="icon icon-chevron-right"></span>
                   Username
                 </li>
                 <li>
@@ -96,6 +108,7 @@
      <script src="scripts/controllers/reportdetail.js"></script>
      <script src="scripts/controllers/login.js"></script>
      <script src="scripts/controllers/logout.js"></script>
+     <script src="scripts/controllers/supervisor.js"></script>
      <script src="scripts/js/index.js"></script>
 
 
