@@ -31,7 +31,7 @@
               </a>
             </div>
             <hr>
-            <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm" ng-show="globals.currentUser">
+            <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm" ng-if="globals.currentUser">
               <ul class="nav nav-pills nav-stacked">
                 <li class="nav-header">Menu</li>
                 <li >
@@ -43,8 +43,18 @@
                 <li >
                   <a href="/#/report/add">Add report</a>
                 </li>
-                <li >
-                    <a href="/#/logout">Logout</a>
+                <hr>
+                <li class="nav-header">
+                  <span class="icon icon-user"></span>
+                  Username
+                </li>
+                <li>
+                  <a href="">
+                    {{ globals.currentUser.username }}
+                  </a>
+                </li>
+                <li>
+                  <a ng-href="#/logout">Logout</a>
                 </li>
               </ul>
               <hr class="visible-xs m-t">
