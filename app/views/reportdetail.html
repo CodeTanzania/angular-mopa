@@ -1,13 +1,19 @@
-
 <div ng-if="report">
-<div class="pen-title">
-  <h2>Report: <span class="text-info">#{{ report.service_request_id  }}</span></h2>
+<div class="dashhead">
+  <div class="dashhead-titles">
+    <h6 class="dashhead-subtitle">SMART DAWASCO</h6>
+    <h2 class="dashhead-title">Report: #{{ report.service_request_id  }}</h2>
+    <hr>
+  </div>
 </div>
+</div>
+
+<div class="text-center text-warning">{{ pageStatusMessage }}</div>
 
 <!-- Form Module-->
 <div class="module form-module add-report">
   <div class="form" >
-    <form class="">
+    <form class="" ng-submit="updateReport()">
     <div class="row">
     <div class="col-sm-12">
     <div class="col-sm-6">
@@ -23,47 +29,31 @@
 
       <legend> Client details</legend>
       <div class="form-group">
-        <label>Name</label> 
+        <label>Name</label>
         <input class="form-control" type="text" name="clientName" ng-model="report.name" ng-disabled="true"/>
       </div>
       <div class="form-group">
-        <label>Account number</label> 
+        <label>Account number</label>
         <input class="form-control" type="text" name="accountNumber" ng-model="report.account_number" ng-disabled="true"/>
       </div>
 
       <div class="form-group">
-        <label>Phone</label> 
+        <label>Phone</label>
         <input class="form-control" type="text" name="phoneNumber" ng-model="report.phone" ng-disabled="true" ng-disabled="true"/>
       </div>
       <div class="form-group">
-        <label>Email</label> 
+        <label>Email</label>
         <input class="form-control" type="email" name="email" ng-model="report.email" ng-disabled="true"/>
       </div>
 
       <legend> Location</legend>
       <div class="form-group">
-        <label>Address:</label> 
+        <label>Address:</label>
         <input class="form-control" type="text" name="address" ng-model="report.address" ng-disabled="true"/>
       </div>
       <div class="form-group">
         <label>Area:</label>
-        <select class="selectpicker form-control form-control-sm" name="areas" ng-model="report.agency_responsible" ng-disabled="true">
-          <option value="head_quater">Head quarter</option>
-          <option value="kinondoni">Kinondoni office</option>
-          <option value="kawe">Kawe office</option>
-          <option value="magomeni"> Magomeni office </option>
-          <option value="tegeta"> Tegeta office </option>
-          <option value="ilala"> Ilala office  </option>
-          <option value="tabata"> Tabata office </option>
-          <option value="temeke"> Temeke office </option>
-          <option value="kimara"> Kimara office </option>
-          <option value="kibaha"> Kibaha office </option>
-          <option value="bagamoyo"> Bagamoyo office </option>
-          <option value="lowerRuvuPlant"> Lower ruvu plant </option>
-          <option value="upperRuvuPlant"> Upper ruvu plant </option>
-          <option value="mtoniPlant"> Mtoni plant </option>
-
-        </select>
+        <span>{{ report.agency_responsible }}</span>
       </div>
       </div>
       <div class="col-sm-6">
@@ -85,37 +75,36 @@
       <div class="form-group">
         <label>Status:</label>
         <select class="selectpicker form-control form-control-sm" name="status" ng-model="report.service_notice">
-          <option value="open"> Open </option>
-          <option value="inProgress"> In progress </option>
-          <option value="sentToArea"> Sent to area </option>
-          <option value="compeleted"> Completed </option> 
+          <option value="Open"> Open </option>
+          <option value="In progress"> In progress </option>
+          <option value="Completed"> Completed </option>
         </select>
       </div>
       <div class="form-group">
-        <label>Actions taken:</label> 
-        <textarea class="form-control" rows="4" id="actionsTaken" ng-model="report.status_note"></textarea>
+        <label>Actions taken:</label>
+        <textarea class="form-control" rows="4" id="actionsTaken" ng-model="report.status_notes"></textarea>
       </div>
       <div class="form-group">
-        <label>Assigned to:</label> 
+        <label>Assigned to:</label>
         <select class="selectpicker form-control form-control-sm" name="assignedTo" ng-model="report.assigned_to">
-          <option value="controlRoom"> Control room </option>
-          <option value="engineer"> Engineer </option>
-          <option value="customerCare"> Customer care </option>
-          <option value="billingOfficer"> Billing officer</option> 
-          <option value="commercialOfficer"> Commercial officer</option>
-        </select> 
+          <option value="Control Room"> Control room </option>
+          <option value="Engineer"> Engineer </option>
+          <option value="Customer Care"> Customer care </option>
+          <option value="Billing Officer"> Billing officer</option>
+          <option value="Commercial Officer"> Commercial officer</option>
+        </select>
       </div>
       <div class="form-group">
         <label>Mode of forwarding:</label>
-        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="report.forwarding_mode">
-          <option value="email"> Email </option>
-          <option value="phone"> Phone</option>
-          <option value="sms"> SMS</option>
+        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="report.forward_mode">
+          <option value="Email">Email </option>
+          <option value="Phone">Phone</option>
+          <option value="SMS"> SMS</option>
         </select>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="feedback" ng-model="report.feedback"> Feedback to citizen 
+          <input type="checkbox" name="feedback" ng-model="report.feedback" ng-true-value="1" ng-false-value="0"> Feedback to citizen
         </label>
       </div>
       </div>
@@ -125,7 +114,7 @@
       <button type="submit">Update</button>
 
     </form>
-    
+
   </div>
 
 </div>

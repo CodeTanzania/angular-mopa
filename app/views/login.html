@@ -1,8 +1,11 @@
-
-<br>
-<div class="pen-title" ng-init="logout = true">
-  <h1>Login</h1>
+<div class="dashhead">
+  <div class="dashhead-titles">
+    <h6 class="dashhead-subtitle">SMART DAWASCO</h6>
+    <h2 class="dashhead-title">Login</h2>
+    <hr>
+  </div>
 </div>
+
 <!-- Form Module-->
 <div class="module form-module">
   <div class="">
@@ -10,21 +13,19 @@
   </div>
   <div class="form" >
 
-    
+
     <div ng-controller="LoginCtrl">
       <div ng-show="error" class="alert alert-danger">{{error}}</div>
       <div ng-show="logMessage" class="alert alert-success">{{logMessage}}</div>
-      <form  novalidate >
+      <form>
         <input name="username" id="username" type="text" ng-model="username" placeholder="Username" required />
-        <input name ="password" id="password" type="password" ng-model="password" placeholder="Password" required hidden/>
-        <button type="submit" ng-click="login()" >Login</button>
+        <input name ="password" id="password" type="password" ng-model="password" placeholder="Password" required />
+        <button type="submit" ng-click="login()">Login</button>
       </form>
     </div>
   </div>
-  
+
   <!--
   <div class="cta"><a href="#">Forgot your password?</a></div>
   -->
 </div>
-
-

@@ -19,19 +19,19 @@ angular
                     )
                 .then(
                     function(response) {
-                        console.log(response);
-                        if(!response.data){
-                            response.message = 'Wrong username or password.)';
-            }
-            callback(response);
-        },
-        function(response) {
-            response.message = 'Wrong username or password.)';
-                callback(response);
+                        console.log(response.status);
+                        if(response.status !== 200){
+                            response.message = 'Wrong username or password';
+                        }
+                        callback(response);
+                    },
+                    function(response) {
+                        response.message = 'Wrong username or password';
+                        callback(response);
 
-            }
+                        }
 
-            );
+                );
 
 
             };
@@ -67,10 +67,10 @@ service.SetCredentials = function (username, password) {
             $http.defaults.headers.common.Authorization = 'Basic ';
         };
         service.LoggedIn = function(){
-            if($rootScope.globals == $cookieStore.get('globals')){
-                return true
+            if($rootScope.globals === $cookieStore.get('globals')){
+                return true;
             }
-            return false
+            return false;
         };
 
         return service;
@@ -85,9 +85,9 @@ service.SetCredentials = function (username, password) {
 
     return {
         encode: function (input) {
-            var output = "";
-            var chr1, chr2, chr3 = "";
-            var enc1, enc2, enc3, enc4 = "";
+            var output = '';
+            var chr1, chr2, chr3 = '';
+            var enc1, enc2, enc3, enc4 = '';
             var i = 0;
 
             do {
@@ -111,27 +111,27 @@ service.SetCredentials = function (username, password) {
                 keyStr.charAt(enc2) +
                 keyStr.charAt(enc3) +
                 keyStr.charAt(enc4);
-                chr1 = chr2 = chr3 = "";
-                enc1 = enc2 = enc3 = enc4 = "";
+                chr1 = chr2 = chr3 = '';
+                enc1 = enc2 = enc3 = enc4 = '';
             } while (i < input.length);
 
             return output;
         },
 
         decode: function (input) {
-            var output = "";
-            var chr1, chr2, chr3 = "";
-            var enc1, enc2, enc3, enc4 = "";
+            var output = '';
+            var chr1, chr2, chr3 = '';
+            var enc1, enc2, enc3, enc4 = '';
             var i = 0;
 
             // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
             var base64test = /[^A-Za-z0-9\+\/\=]/g;
             if (base64test.exec(input)) {
-                window.alert("There were invalid base64 characters in the input text.\n" +
-                    "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-                    "Expect errors in decoding.");
+                window.alert('There were invalid base64 characters in the input text.\n' +
+                    'Valid base64 characters are A-Z, a-z, 0-9, \'+\', \'/\',and \'=\'\n' +
+                    'Expect errors in decoding.');
             }
-            input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+            input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
 
             do {
                 enc1 = keyStr.indexOf(input.charAt(i++));
@@ -152,8 +152,8 @@ service.SetCredentials = function (username, password) {
                     output = output + String.fromCharCode(chr3);
                 }
 
-                chr1 = chr2 = chr3 = "";
-                enc1 = enc2 = enc3 = enc4 = "";
+                chr1 = chr2 = chr3 = '';
+                enc1 = enc2 = enc3 = enc4 = '';
 
             } while (i < input.length);
 

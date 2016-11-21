@@ -12,7 +12,9 @@ angular.module('mopaApp')
 
     var resourceConfig = {
       get: {method: 'GET', isArray: true},
-      save: {method: 'POST', isArray: true}
+      save: {method: 'POST', isArray: true},
+      put: {method: 'PUT', isArray: true}
+
     };
 
     return $resource(config.API_ROOT + '/requests/:id.json', {}, resourceConfig);

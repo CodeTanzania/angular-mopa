@@ -1,1 +1,88 @@
-<p>This is the about view.</p>
+<div class="dashhead">
+  <div class="dashhead-titles">
+    <h6 class="dashhead-subtitle">SMART DAWASCO</h6>
+    <h2 class="dashhead-title">System overview</h2>
+    <hr>
+  </div>
+</div>
+
+<div class="hr-divider m-t-md m-b">
+  <h3 class="hr-divider-content hr-divider-heading">Response pipeline</h3>
+</div>
+
+<div class="row statcards">
+  <div class="col-sm-6 col-lg-3 m-b">
+    <div class="statcard statcard-danger">
+      <div class="p-a" >
+        <span class="statcard-desc">Open</span>
+        <h2 class="statcard-number">
+          {{ stats.status.Open  }}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 m-b">
+    <div class="statcard statcard-warning">
+      <div class="p-a">
+        <span class="statcard-desc">In Progress</span>
+        <h2 class="statcard-number">
+          {{ stats.status['In progress'] }}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 m-b">
+    <div class="statcard statcard-success">
+      <div class="p-a">
+        <span class="statcard-desc">Completed</span>
+        <h2 class="statcard-number">
+          {{ stats.status.Completed  }}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 m-b">
+    <div class="statcard statcard-info">
+      <div class="p-a">
+        <span class="statcard-desc">Created today</span>
+        <h2 class="statcard-number">
+          {{ stats.reports_today  }}
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr-divider m-t-md m-b">
+  <h3 class="hr-divider-content hr-divider-heading">League tables</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-6 m-b-md">
+    <div class="list-group">
+      <h4 class="list-group-header">
+        Categories
+      </h4>
+        <li class="list-group-item" ng-repeat="category in stats.category">
+          <span class="pull-right text-muted">{{ category.value }}</span>
+          {{ category.group }} // {{ category.name }}
+        </li>
+    </div>
+  </div>
+  <div class="col-sm-6 m-b-md">
+    <div class="list-group">
+      <h4 class="list-group-header">
+        Groups
+      </h4>
+        <li class="list-group-item">
+          <span class="list-group-progress" style="width: {{ stats.group.Commercial/(stats.group.Commercial+stats.group['Non-Revenue Calls'])*100 }}%;"></span>
+          <span class="pull-right text-muted">{{ stats.group.Commercial }}</span>
+          Commercial
+        </li>
+        <li class="list-group-item">
+          <span class="list-group-progress" style="width: {{ stats.group['Non-Revenue Calls']/(stats.group.Commercial+stats.group['Non-Revenue Calls'])*100 }}%;"></span>
+          <span class="pull-right text-muted">{{ stats.group['Non-Revenue Calls'] }}</span>
+          Non-revenue calls
+        </li>
+    </div>
+</div>

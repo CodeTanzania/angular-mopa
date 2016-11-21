@@ -1,19 +1,21 @@
-
-<div class="pen-title">
-  <h2>Create new report</h2>
+<div class="dashhead">
+  <div class="dashhead-titles">
+    <h6 class="dashhead-subtitle">SMART DAWASCO</h6>
+    <h2 class="dashhead-title">Add Report</h2>
+    <hr>
+  </div>
 </div>
 
 <!-- Form Module-->
 <div class="module form-module add-report">
   <div class="form" >
-    <h2>Report details</h2>
     <form class="" ng-submit="submitReport()">
     <div class="row">
     <div class="col-sm-12">
     <div class="col-sm-6">
       <legend>Call Details</legend>
       <div class="form-group">
-        <label>Start time:</label>
+        <label>Start time *</label>
         <div class="input-group">
           <div class="input-group-addon" ng-click="newReport.call_start_time=now()">Start now</div>
           <input class="form-control" type="text" name="startDate" ng-model="newReport.call_start_time" ng-required="true"/>
@@ -22,30 +24,30 @@
 
       <legend> Client details</legend>
       <div class="form-group">
-        <label>Name</label> 
+        <label>Name *</label>
         <input class="form-control" type="text" name="clientName" ng-model="newReport.name" ng-required="true"/>
       </div>
       <div class="form-group">
-        <label>Account number</label> 
+        <label>Account number</label>
         <input class="form-control" type="text" name="accountNumber" ng-model="newReport.account_number"/>
       </div>
 
       <div class="form-group">
-        <label>Phone</label> 
+        <label>Phone *</label>
         <input class="form-control" type="text" name="phoneNumber" ng-model="newReport.phone" ng-required="true"/>
       </div>
       <div class="form-group">
-        <label>Email</label> 
+        <label>Email</label>
         <input class="form-control" type="email" name="email" ng-model="newReport.email"/>
       </div>
 
-      <legend> Location</legend>
+      <legend>Location</legend>
       <div class="form-group">
-        <label>Address:</label> 
+        <label>Address *</label>
         <input class="form-control" type="text" name="address" ng-model="newReport.address" ng-required="true"/>
       </div>
       <div class="form-group">
-        <label>Area:</label>
+        <label>Area *</label>
         <select class="selectpicker form-control form-control-sm" name="areas" ng-model="newReport.agency_responsible" ng-required="true">
           <option></option>
           <option value="Headquater">Headquarter</option>
@@ -67,7 +69,7 @@
       </div>
       <legend>Call Details</legend>
       <div class="form-group">
-        <label>End time:</label>
+        <label>End time *</label>
         <div class="input-group">
           <div class="input-group-addon" ng-click="newReport.call_end_time=now()">End now</div>
           <input class="form-control" type="text" name="endDate" ng-model="newReport.call_end_time" ng-required="true"/>
@@ -76,10 +78,10 @@
       </div>
 
       <div class="col-sm-6">
-      <legend> Complaint</legend>
+      <legend>Complaint</legend>
 
       <div class="form-group">
-        <label>Group:</label>
+        <label>Group</label>
         <select class="form-control" ng-model="selectedServiceGroup" ng-change="updateServiceGroup()">
           <option></option>
           <option value="Commercial">Commercial</option>
@@ -87,7 +89,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Category:</label>
+        <label>Category *</label>
         <select class="form-control" ng-model="newReport.service_code"
             ng-options="item.service_code as item.service_name for item in serviceCodes"
             ng-required="true">
@@ -95,39 +97,38 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Complaint Details</label>
+        <label>Complaint Details *</label>
         <textarea class="form-control" rows="5" id="complaintDetails" ng-model="newReport.description" ng-required="true"></textarea>
       </div>
 
       <legend>Follow-up</legend>
       <div class="form-group">
-        <label>Status:</label>
+        <label>Status *</label>
         <select class="selectpicker form-control form-control-sm" name="status" ng-model="newReport.service_notice" ng-required="true">
           <option></option>
-          <option value="open"> Open </option>
-          <option value="in progress"> In progress </option>
-          <option value="sent to area"> Sent to area </option>
-          <option value="compeleted"> Completed </option> 
+          <option value="Open"> Open </option>
+          <option value="In progress"> In progress </option>
+          <option value="Compeleted"> Completed </option>
         </select>
       </div>
       <div class="form-group">
-        <label>Actions taken:</label> 
+        <label>Actions taken</label>
         <textarea class="form-control" rows="4" id="actionsTaken" ng-model="newReport.status_note"></textarea>
       </div>
       <div class="form-group">
-        <label>Assigned to:</label> 
+        <label>Assigned to *</label>
         <select class="selectpicker form-control form-control-sm" name="assignedTo" ng-model="newReport.assigned_to" ng-required="true">
           <option></option>
           <option value="Control Room"> Control room </option>
           <option value="Engineer"> Engineer </option>
           <option value="Customer Care"> Customer care </option>
-          <option value="Billing Officer"> Billing officer</option> 
+          <option value="Billing Officer"> Billing officer</option>
           <option value="Commercial Officer"> Commercial officer</option>
-        </select> 
+        </select>
       </div>
       <div class="form-group">
-        <label>Mode of forwarding:</label>
-        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="newReport.forwarding_mode" ng-required="true">
+        <label>Mode of forwarding *</label>
+        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="newReport.forward_mode" ng-required="true">
           <option></option>
           <option value="email"> Email </option>
           <option value="phone"> Phone</option>
@@ -136,7 +137,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="feedback" ng-model="newReport.feedback"/> Feedback to citizen 
+          <input type="checkbox" name="feedback" ng-model="newReport.feedback"/> Feedback to citizen
         </label>
       </div>
       </div>
@@ -146,7 +147,7 @@
       <button type="submit">Submit</button>
 
     </form>
-    
+
   </div>
 
 </div>
