@@ -60,7 +60,7 @@
           <option value="Temeke"> Temeke office </option>
           <option value="Kimara"> Kimara office </option>
           <option value="Kibaha"> Kibaha office </option>
-          <option value="bagamoyo"> Bagamoyo office </option>
+          <option value="Bagamoyo"> Bagamoyo office </option>
           <option value="Lower Ruvu Plant"> Lower ruvu plant </option>
           <option value="Upper RuvuPlant"> Upper ruvu plant </option>
           <option value="Mtoni Plant"> Mtoni plant </option>
@@ -108,17 +108,20 @@
           <option></option>
           <option value="Open"> Open </option>
           <option value="In progress"> In progress </option>
-          <option value="Compeleted"> Completed </option>
+          <option value="Sent to area"> Sent to area </option>
+          <option value="Completed"> Completed </option>
         </select>
       </div>
       <div class="form-group">
         <label>Actions taken</label>
-        <textarea class="form-control" rows="4" id="actionsTaken" ng-model="newReport.status_note"></textarea>
+        <textarea class="form-control" rows="4" id="actionsTaken" ng-model="newReport.status_notes"></textarea>
       </div>
       <div class="form-group">
         <label>Assigned to *</label>
         <select class="selectpicker form-control form-control-sm" name="assignedTo" ng-model="newReport.assigned_to" ng-required="true">
           <option></option>
+          <option value="Call Center Supervisor"> Call Center Supervisor </option>
+          <option value="Regional Manager"> Regional Manager </option>
           <option value="Control Room"> Control room </option>
           <option value="Engineer"> Engineer </option>
           <option value="Customer Care"> Customer care </option>
@@ -128,16 +131,16 @@
       </div>
       <div class="form-group">
         <label>Mode of forwarding *</label>
-        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="newReport.forward_mode" ng-required="true">
+        <select class="selectpicker form-control form-control-sm" name="forwadingMode" ng-model="newReport.forward_mode">
           <option></option>
-          <option value="email"> Email </option>
-          <option value="phone"> Phone</option>
-          <option value="sms"> SMS</option>
+          <option value="Email">Email </option>
+          <option value="Phone">Phone</option>
+          <option value="SMS">SMS</option>
         </select>
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="feedback" ng-model="newReport.feedback"/> Feedback to citizen
+          <input type="checkbox" name="feedback" ng-model="newReport.feedback"/> Feedback to customer
         </label>
       </div>
       </div>

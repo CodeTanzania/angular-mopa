@@ -77,6 +77,7 @@
         <select class="selectpicker form-control form-control-sm" name="status" ng-model="report.service_notice">
           <option value="Open"> Open </option>
           <option value="In progress"> In progress </option>
+          <option value="Sent to area"> Sent to area </option>
           <option value="Completed"> Completed </option>
         </select>
       </div>
@@ -87,6 +88,8 @@
       <div class="form-group">
         <label>Assigned to:</label>
         <select class="selectpicker form-control form-control-sm" name="assignedTo" ng-model="report.assigned_to">
+          <option value="Call Center Supervisor"> Call Center Supervisor </option>
+          <option value="Regional Manager"> Regional Manager </option>
           <option value="Control Room"> Control room </option>
           <option value="Engineer"> Engineer </option>
           <option value="Customer Care"> Customer care </option>
@@ -104,7 +107,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="feedback" ng-model="report.feedback" ng-true-value="1" ng-false-value="0"> Feedback to citizen
+          <input type="checkbox" name="feedback" ng-model="report.feedback" ng-true-value="1" ng-false-value="0"> Feedback to customer
         </label>
       </div>
       </div>

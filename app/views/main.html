@@ -51,7 +51,7 @@
             <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted">{{ report.phone }}</a></td>
             <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted">{{ report.agency_responsible }}</a></td>
             <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted">{{ report.service_name }}</a></td>
-            <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted"><button type="button" class="btn btn-sm btn-{{report.service_notice === 'Completed' ? 'success' : (report.service_notice === 'In progress' ? 'warning' : 'danger')}}">{{ report.service_notice }}</button></a></td>
+            <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted"><button type="button" class="btn btn-sm btn-{{report.service_notice === 'Completed' ? 'success' : (report.service_notice === 'Open' ? 'danger' : 'warning')}}">{{ report.service_notice }}</button></a></td>
             <td><a ng-href="#/report/{{ report.service_request_id }}" class="text-muted">{{ report.assigned_to }}</a></td>
           </tr>
         </tbody>
