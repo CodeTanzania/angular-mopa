@@ -1,5 +1,6 @@
 'use strict';
 
+/*jshint quotmark:false */
 $(document).ready(function() {
     $('#example').DataTable();
 } );
@@ -141,5 +142,7 @@ if ( window.$ ) {
 		$('ul.tabs li.active').click();
 	} );
 }
+/*jshint quotmark:true */
+
 
 
