@@ -8,7 +8,8 @@
 * Controller of the mopaApp
 */
 angular.module('mopaApp')
-.controller('ReportdetailCtrl', function ($scope, $location, $routeParams, $http, config, report) {
+.controller('ReportdetailCtrl', function ($scope, $location, $routeParams, 
+  $http, config, report, Mailto) {
   $scope.serviceCodes = [];
   $scope.pageStatusMessage = 'loading ...';
 
@@ -30,5 +31,14 @@ angular.module('mopaApp')
     $http.put(config.API_ROOT + '/requests/' + $routeParams.id + '.json', $scope.report).then(function (response){
       $scope.pageStatusMessage = 'Report updated.';
     });
+  };
+
+  /**
+   * @description convert a report to email
+   * @param  {Object} report current report in the scope
+   * @return {String} valid mailto string to bind into href        
+   */
+  $scope.toEmail = function(report){
+
   };
 });

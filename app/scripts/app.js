@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'uz.mailto'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
