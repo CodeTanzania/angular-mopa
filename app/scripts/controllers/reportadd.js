@@ -8,7 +8,8 @@
  * Controller of the mopaApp
  */
 angular.module('mopaApp')
-  .controller('ReportaddCtrl', function ($scope, $location, $http, $filter,
+  .controller('ReportaddCtrl', function ($window, $scope, $location, $http,
+    $filter,
     config, report) {
     $scope.newReport = {};
     $scope.serviceCodes = [];
@@ -30,9 +31,16 @@ angular.module('mopaApp')
     };
 
     $scope.submitReport = function () {
+
       /*jshint camelcase:false */
       report.save($scope.newReport, function (response) {
+        $scope.newReport.service_request_id = response[0].service_request_id;
+        
+        //try send e-mail;
+        // $window.open(report.toEmail($scope.newReport));
+
         $location.url('/report/' + response[0].service_request_id);
+
       });
       /*jshint camelcase:true */
     };

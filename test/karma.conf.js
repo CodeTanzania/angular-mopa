@@ -30,6 +30,9 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/angular-mailto/angular-mailto.js',
+      'bower_components/datatables/media/js/jquery.dataTables.js',
+      'bower_components/datatables.net/js/jquery.dataTables.js',
+      'bower_components/datatables.net-bs/js/dataTables.bootstrap.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
